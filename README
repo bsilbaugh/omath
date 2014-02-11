@@ -1,0 +1,31 @@
+
+                                 ~ OMATH ~
+
+A collection of math utilities in Ocaml.
+
+Copyright 2014 Benjamin Silbaugh
+
+See LICENSE file for redistribution and modification permissions.
+
+===========================================================================
+
+Description
+~~~~~~~~~~~
+
+Omath is an aggregation of Ocaml utilities to support numerical modeling.
+
+Status
+~~~~~~
+
+Omath is in a highly experimental stage of development: the API is highly
+unstable, and there may be critical "bugs".
+
+Building
+~~~~~~~~
+
+Running ocamlbuild in the toplevel directory should suffice to build the
+library locally; e.g.
+
+    $ ocamlbuild omath.cmo
+
+Installation via a package manager, such as findlib, is not yet supported.
