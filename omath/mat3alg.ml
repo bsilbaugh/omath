@@ -37,16 +37,6 @@ let mat e11 e12 e13
 						mat_21 = e21 ; mat_22 = e22 ; mat_23 = e23 ;
 						mat_31 = e31 ; mat_32 = e32 ; mat_33 = e33 }
 
-let tuple_vec {vec_1; vec_2; vec_3} = (vec_1, vec_2, vec_3)
-
-let tuple_covec (Covec u) = tuple_vec u
-
-let tuple_mat {mat_11; mat_12; mat_13;
-		       mat_21; mat_22; mat_23;
-			   mat_31; mat_32; mat_33} = (mat_11, mat_12, mat_13,
-										  mat_21, mat_22, mat_23,
-										  mat_31, mat_32, mat_33)
-
 (* === Accessors === *)
 
 let vec_1 {vec_1; _} = vec_1
