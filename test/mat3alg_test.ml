@@ -4,6 +4,8 @@ open OUnit
 open Omath
 open Mat3alg
 
+(* === CONSTRUCTORS AND ACCESSORS === *)
+
 let test_vec _ =
   assert_equal 1.0 (vec_1 (vec 1.0 2.0 3.0));
   assert_equal 2.0 (vec_2 (vec 1.0 2.0 3.0));
