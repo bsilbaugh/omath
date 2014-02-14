@@ -95,33 +95,33 @@ let mat_map2 f a b =
 
 (* === Vector +, -, *, / === *)
 
-let add_vec = vec_map2 (+.)
+let ( +:: ) = vec_map2 (+.)
 
-let sub_vec = vec_map2 (-.)
+let ( -:: ) = vec_map2 (-.)
 
-let mul_num_vec c = vec_map (fun ui -> c *. ui)
+let ( *.: ) c = vec_map (fun ui -> c *. ui)
 
-let div_vec_num u c = mul_num_vec (1.0 /. c) u
+let ( /:. ) u c = (1.0 /. c) *.: u
 
 (* === Covector +, -, *, / === *)
 
-let add_covec (Covec u) (Covec v) = Covec (add_vec u v)
+let ( +%% ) (Covec u) (Covec v) = Covec (u +:: v)
 
-let sub_covec (Covec u) (Covec v) = Covec (sub_vec u v)
+let ( -%% ) (Covec u) (Covec v) = Covec (u -:: v)
 
-let mul_num_covec c (Covec u) = Covec (mul_num_vec c u)
+let ( *.% ) c (Covec u) = Covec (c *.: u)
 
-let div_covec_num (Covec u) c = Covec (div_vec_num u c)
+let ( /%. ) (Covec u) c = Covec (u /:. c)
 
 (* === Matrix +, -, *, / === *)
 
-let add_mat = mat_map2 (+.)
+let ( +@@ ) = mat_map2 (+.)
 
-let sub_mat = mat_map2 (-.)
+let ( -@@ ) = mat_map2 (-.)
 
-let mul_num_mat c = mat_map (fun aij -> c *. aij)
+let ( *.@ ) c = mat_map (fun aij -> c *. aij)
 
-let div_mat_num a c = mul_num_mat (1.0 /. c) a
+let ( /@. ) a c = (1.0 /. c) *.@ a
 
 (* === Vector - vector  operations === *)
 
@@ -140,26 +140,24 @@ let outer u v =
 
 (* === Covector - vector operations === *)
 
-let mul_covec_vec (Covec u) v = dot u v
+let ( *%: ) (Covec u) v = dot u v
 
 (* === Matrix - Vector operations *)
 
-let mul_mat_vec a u = let dot = mul_covec_vec in
-					  vec (dot (row_1 a) u) 
-						  (dot (row_2 a) u)
-						  (dot (row_3 a) u)
+let ( *@: ) a u = vec ((row_1 a) *%: u) 
+					  ((row_2 a) *%: u)
+					  ((row_3 a) *%: u)
 
-let mul_covec_mat (Covec u) a = Covec (vec (dot u (col_1 a))
-										   (dot u (col_2 a))
-										   (dot u (col_3 a)))
+let ( *%@ ) (Covec u) a = Covec (vec (dot u (col_1 a))
+									 (dot u (col_2 a))
+									 (dot u (col_3 a)))
 
-let mul_mat a b = let a1 = row_1 a in
+let ( *@@ ) a b = let a1 = row_1 a in
 				  let a2 = row_2 a in
 				  let a3 = row_3 a in
 				  let b1 = col_1 b in
 				  let b2 = col_2 b in
 				  let b3 = col_3 b in
-				  let dot = mul_covec_vec in
-				  mat (dot a1 b1) (dot a1 b2) (dot a1 b3)
-					  (dot a2 b1) (dot a2 b2) (dot a2 b3)
-					  (dot a3 b1) (dot a3 b2) (dot a3 b3)
+				  mat (a1 *%: b1) (a1 *%: b2) (a1 *%: b3)
+					  (a2 *%: b1) (a2 *%: b2) (a2 *%: b3)
+					  (a3 *%: b1) (a3 *%: b2) (a3 *%: b3)
