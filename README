@@ -17,7 +17,7 @@ Omath is an aggregation of Ocaml utilities to support numerical modeling.
 Status
 ~~~~~~
 
-Omath is in a highly experimental stage of development: the API is highly
+Omath is in a experimental stage of development: the API is highly
 unstable, and there may be critical "bugs".
 
 Building
