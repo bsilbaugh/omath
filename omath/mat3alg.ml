@@ -62,8 +62,8 @@ let row_2 {mat_21; mat_22; mat_23; _} = Covec (vec mat_21 mat_22 mat_23)
 let row_3 {mat_31; mat_32; mat_33; _} = Covec (vec mat_31 mat_32 mat_33)
 
 let col_1 {mat_11; mat_21; mat_31; _} = vec mat_11 mat_21 mat_31
-let col_2 {mat_21; mat_22; mat_23; _} = vec mat_21 mat_22 mat_23
-let col_3 {mat_31; mat_32; mat_33; _} = vec mat_31 mat_32 mat_33
+let col_2 {mat_12; mat_22; mat_32; _} = vec mat_12 mat_22 mat_32
+let col_3 {mat_13; mat_23; mat_33; _} = vec mat_13 mat_23 mat_33
 
 (* === Maps === *)
 
