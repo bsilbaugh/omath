@@ -26,6 +26,6 @@ Building
 Running ocamlbuild in the toplevel directory should suffice to build the
 library locally; e.g.
 
-    $ ocamlbuild omath.cmo
+    $ ocamlbuild omath.cma
 
 Installation via a package manager, such as findlib, is not yet supported.
