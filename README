@@ -20,12 +20,12 @@ Status
 Omath is in a experimental stage of development: the API is highly
 unstable, and there may be critical "bugs".
 
-Building
-~~~~~~~~
+Installation
+~~~~~~~~~~~~
 
-Running ocamlbuild in the toplevel directory should suffice to build the
-library locally; e.g.
+Execute the command "make" in the top level of the source tree to build
+omath via ocamlbuild, or execute ocamlbuild directly; e.g.
 
-    $ ocamlbuild omath.cma
+    ocamlbuild omath.cma
 
-Installation via a package manager, such as findlib, is not yet supported.
+Executing the command "make install" will install omath via findlib.

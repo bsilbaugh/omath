@@ -1,0 +1,5 @@
+description = "A collection of ocaml math utilities"
+requires = ""
+version = "0"
+archive(byte) = "omath.cma"
+archive(native) = "omath.cmax"
